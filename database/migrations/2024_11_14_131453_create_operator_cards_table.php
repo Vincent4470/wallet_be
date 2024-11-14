@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('operator_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('card_number');
+            $table->string('name');
             $table->enum('status', ['active', 'inactive']);
             $table->string('thumbnail');
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('operator_cards_');
+        Schema::dropIfExists('operator_cards');
     }
 };
