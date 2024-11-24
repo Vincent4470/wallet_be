@@ -16,4 +16,9 @@ class DataPlan extends Model
         'price',
         'operator_card_id',
     ];
+
+    public function operatorCard()
+    {
+        return $this->belongsTo(OperatorCard::class, 'operator_card_id', 'id');
+    }
 }

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->float('price');
             $table->foreignId('operator_card_id')->constrained('operator_cards');
             $table->timestamps();
+
+            $table->foreign('operator_card_id')->references('id')->onDelete('cascade');
         });
     }
 

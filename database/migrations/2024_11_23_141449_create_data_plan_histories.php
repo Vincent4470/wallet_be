@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('operator_cards', function (Blueprint $table) {
+        Schema::create('data_plan_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->string('thumbnail')->nullable();
+            $table->foreignId('data_plan_id')->constrained('data_plans');
+            $table->foreignId('transaction_id')->constrained('transactions');
+            $table->string('phone_number');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('operator_cards');
+        Schema::dropIfExists('data_plan_histories');
     }
 };
