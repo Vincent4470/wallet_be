@@ -21,4 +21,19 @@ class Transaction extends Model
         'status',
         'transaction_code',
     ];
+
+    public function transactionType()
+    {
+        return $this->belongsTo(TransactionType::class, 'transaction_type_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(PaymentMethod::class, 'payment_method_id');
+    }
 }
