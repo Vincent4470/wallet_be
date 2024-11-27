@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\OperatorCardController;
 use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\TransferHistoryController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ use App\Http\Controllers\Api\TransferHistoryController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('is_email_exist', [UserController::class,'isEmailExist']);
 
 Route::post('/webhooks', [WebhookController::class, 'update']);
 
@@ -44,4 +46,7 @@ Route::group([
     Route::get('payment_methods', [PaymentMethodController::class, 'index']);
     Route::get('transfers_histories', [TransferHistoryController::class, 'index']);
     Route::get('transactions', [TransactionController::class, 'index']);
+    Route::get('users', [UserController::class, 'show']);
+    Route::get('users/{username}', [UserController::class, 'getUserByUsername']);
+    Route::put('users', [UserController::class, 'update']);
 });
