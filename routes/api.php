@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\TransferHistoryController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\WalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::post('/webhooks', [WebhookController::class, 'update']);
 Route::group([
     'middleware' => 'jwt.verify'
 ], function ($router) {
+    Route::post('logout', [AuthController::class, 'logout']);
     Route::post('top_ups', [TopUPController::class, 'store']);
     Route::post('transfers', [TransferController::class, 'store']);
     Route::post('data_plans', [DataPlanController::class, 'store']);
@@ -49,4 +51,6 @@ Route::group([
     Route::get('users', [UserController::class, 'show']);
     Route::get('users/{username}', [UserController::class, 'getUserByUsername']);
     Route::put('users', [UserController::class, 'update']);
+    Route::get('wallets', [WalletController::class, 'show']);
+    Route::put('wallets', [WalletController::class,'update']);
 });
