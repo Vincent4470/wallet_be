@@ -33,7 +33,7 @@ use App\Http\Controllers\Api\WalletController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('is_email_exist', [UserController::class,'isEmailExist']);
+Route::post('is-email-exist', [UserController::class,'isEmailExist']);
 
 Route::post('/webhooks', [WebhookController::class, 'update']);
 

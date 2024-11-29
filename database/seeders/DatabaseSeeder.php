@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             DataPlanSeeder::class,
             PaymentMethodSeeder::class,
             TransactionTypeSeeder::class,
+            AdminUserSeeder::class,
+            TipSeeder::class,
         ]);
     }
 }
